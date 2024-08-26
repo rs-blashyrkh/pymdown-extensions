@@ -117,20 +117,20 @@ RE_GIT_INT_REPO_MENTIONS = r'''(?x)
 RE_GIT_EXT_REFS = r'''(?x)
 (?P<all>(?<![@/])(?:(?P<user>\b{})/)
 (?P<repo>\b[-._a-zA-Z\d]{{0,99}}[a-zA-Z\d])
-(?:(?P<issue>(?:\#|!|\?)[1-9][0-9]*)|(?P<commit>@[a-f\d]{{40}})(?:\.{{3}}(?P<diff>[a-f\d]{{40}}))?))\b
+(?:(?P<issue>(?:\#|!|\?)[1-9][0-9]*(#note-[1-9][0-9]*)?)|(?P<commit>@[a-f\d]{{40}})(?:\.{{3}}(?P<diff>[a-f\d]{{40}}))?))\b
 '''
 
 # Internal reference patterns (issue, pull request, commit, compare)
 RE_GIT_INT_EXT_REFS = r'''(?x)
 (?P<all>(?<![@/])(?:(?P<user>\b{})/)?
 (?P<repo>\b[-._a-zA-Z\d]{{0,99}}[a-zA-Z\d])
-(?:(?P<issue>(?:\#|!|\?)[1-9][0-9]*)|(?P<commit>@[a-f\d]{{40}})(?:\.{{3}}(?P<diff>[a-f\d]{{40}}))?))\b
+(?:(?P<issue>(?:\#|!|\?)[1-9][0-9]*(#note-[1-9][0-9]*)?)|(?P<commit>@[a-f\d]{{40}})(?:\.{{3}}(?P<diff>[a-f\d]{{40}}))?))\b
 '''
 
 # Internal reference patterns for default user and repository (issue, pull request, commit, compare)
 RE_GIT_INT_MICRO_REFS = r'''(?x)
 (?P<all>
-    (?:(?<![a-zA-Z])(?P<issue>(?:\#|!|\?)[1-9][0-9]*)|(?P<commit>(?<![@/])\b[a-f\d]{40})(?:\.{3}(?P<diff>[a-f\d]{40}))?)
+    (?:(?<![a-zA-Z])(?P<issue>(?:\#|!|\?)[1-9][0-9]*(#note-[1-9][0-9]*)?)|(?P<commit>(?<![@/])\b[a-f\d]{40})(?:\.{3}(?P<diff>[a-f\d]{40}))?)
 )\b
 '''
 
